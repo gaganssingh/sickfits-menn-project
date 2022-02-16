@@ -1,19 +1,4 @@
 {
-  "editor.formatOnSave": true,
-  "[javascript]": {
-    "editor.formatOnSave": false
-  },
-  "[javascriptreact]": {
-    "editor.formatOnSave": false
-  },
-  "eslint.alwaysShowStatus": true,
-  "editor.codeActionsOnSave": {
-    "source.fixAll": true
-  },
-  "prettier.disableLanguages": [
-    "javascript",
-    "javascriptreact"
-  ],
   "workbench.colorCustomizations": {
     "activityBar.activeBackground": "#cb50a7",
     "activityBar.activeBorder": "#a8cc53",

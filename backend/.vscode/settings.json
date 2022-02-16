@@ -1,0 +1,37 @@
+{
+  "editor.formatOnSave": true,
+  "[javascript]": {
+    "editor.formatOnSave": false
+  },
+  "[javascriptreact]": {
+    "editor.formatOnSave": false
+  },
+  "eslint.alwaysShowStatus": true,
+  "editor.codeActionsOnSave": {
+    "source.fixAll": true
+  },
+  "prettier.disableLanguages": [
+    "javascript",
+    "javascriptreact"
+  ],
+  "workbench.colorCustomizations": {
+    "activityBar.activeBackground": "#cb50a7",
+    "activityBar.activeBorder": "#a8cc53",
+    "activityBar.background": "#cb50a7",
+    "activityBar.foreground": "#e7e7e7",
+    "activityBar.inactiveForeground": "#e7e7e799",
+    "activityBarBadge.background": "#a8cc53",
+    "activityBarBadge.foreground": "#15202b",
+    "sash.hoverBorder": "#cb50a7",
+    "statusBar.background": "#b3358e",
+    "statusBar.foreground": "#e7e7e7",
+    "statusBarItem.hoverBackground": "#cb50a7",
+    "statusBarItem.remoteBackground": "#b3358e",
+    "statusBarItem.remoteForeground": "#e7e7e7",
+    "titleBar.activeBackground": "#b3358e",
+    "titleBar.activeForeground": "#e7e7e7",
+    "titleBar.inactiveBackground": "#b3358e99",
+    "titleBar.inactiveForeground": "#e7e7e799"
+  },
+  "peacock.color": "#b3358e"
+}

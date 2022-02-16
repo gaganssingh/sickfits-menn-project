@@ -1,5 +1,11 @@
 import "dotenv/config";
 import { config, createSchema } from "@keystone-next/keystone/schema";
+import { createAuth } from "@keystone-next/auth";
+import {
+  withItemData,
+  statelessSessions,
+} from "@keystone-next/keystone/session";
+import { User } from "./schemas/User";
 
 const databaseURL =
   process.env.DATABASE_URL || "mongodb://localhost/sickfits-menn";
@@ -9,24 +15,43 @@ const sessionConfig = {
   secret: process.env.COOKIE_SECRET,
 };
 
-export default config({
-  server: {
-    cors: {
-      origin: [process.env.FRONTEND_URL],
-      credentials: true,
-    },
+const { withAuth } = createAuth({
+  listKey: "User", // Schema to be used for logins
+  identityField: "email",
+  secretField: "password",
+  initFirstItem: {
+    fields: ["name", "email", "password"],
+    // TODO: Add initial Roles
   },
-  db: {
-    adapter: "mongoose",
-    url: databaseURL,
-    // TODO: Add Data Seeding
-  },
-  lists: createSchema({
-    // TODO: Schema Items
-  }),
-  ui: {
-    // TODO: Change this for roles
-    isAccessAllowed: () => true,
-  },
-  // TODO: Add session value here
 });
+
+export default withAuth(
+  config({
+    server: {
+      cors: {
+        origin: [process.env.FRONTEND_URL],
+        credentials: true,
+      },
+    },
+    db: {
+      adapter: "mongoose",
+      url: databaseURL,
+      // TODO: Add Data Seeding
+    },
+    lists: createSchema({
+      // TODO: Schema Items
+      User,
+    }),
+    ui: {
+      // Show the UI only for authenticated user
+      isAccessAllowed: ({ session }) => {
+        console.log(session);
+        return !!session?.data;
+      },
+    },
+    session: withItemData(statelessSessions(sessionConfig), {
+      // GraphQL Query
+      User: `id`,
+    }),
+  })
+);

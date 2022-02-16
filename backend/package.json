@@ -5,13 +5,8 @@
   "author": "Wes Bos",
   "license": "MIT",
   "scripts": {
-    "dev": "keystone-next",
+    "dev": "keystone-next dev",
     "seed-data": "keystone-next --seed-data"
-  },
-  "eslintConfig": {
-    "rules": {
-      "@typescript-eslint/no-unsafe-assignment": 0
-    }
   },
   "babel": {
     "presets": [
@@ -64,6 +59,7 @@
     "eslint-plugin-prettier": "^3.1.4",
     "eslint-plugin-react": "^7.21.5",
     "eslint-plugin-react-hooks": "^4.2.0",
+    "nodemon": "^2.0.15",
     "prettier": "^2.2.1",
     "typescript": "^4.1.2"
   },
